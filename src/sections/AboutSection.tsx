@@ -142,7 +142,7 @@ export default function AboutSection() {
               {
                 icon: "🌐",
                 title: "Languages",
-                main: "Japanese (Native) · English (Fluent)",
+                main: "Japanese · English",
                 sub: "",
               },
             ].map((card) => (
