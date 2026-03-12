@@ -167,11 +167,14 @@ export default function HomeSection() {
               <Image
                 src="/images/profile.jpg"
                 alt="Kohei Kuramoto"
-                fill
+                width={320}
+                height={320}
                 style={{
                   objectFit: "cover",
                   objectPosition: "center 70%",
                   transform: "scale(1.15)",
+                  width: "100%",
+                  height: "100%",
                 }}
               />
             </div>
