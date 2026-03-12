@@ -30,11 +30,11 @@ export default function ExperienceSection() {
       "Investigated and resolved ingestion failures by analysing logs and API responses",
     ],
     ja: [
-      "CornerstoneおよびDatabricks向けの本番グレードのデータ取り込みパイプラインを設計・開発・保守",
+      "CornerstoneおよびDatabricks向けの本番用データ取り込みパイプラインを設計・構築・保守",
       "Databricks上で700万行以上の構造化データを複数ジョブで安定処理",
-      "新規APIベースの取り込みライブラリを導入し、新フレームワーク移行を推進",
-      "3つのクロスファンクショナルチームと連携し、スキーマ設計・障害調査を担当",
-      "APIレスポンスおよびログ解析により本番障害を特定・解決し、安定性を向上",
+      "APIベースの取り込みライブラリを活用し、新フレームワークへの移行を推進",
+      "3つの部門横断チームと連携し、要件定義とスキーマ検証を担当",
+      "APIレスポンスおよびログ解析により本番障害を特定・解決し、システムの安定性を向上",
     ],
   };
 
