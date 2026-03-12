@@ -1,10 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useLang } from "@/lib/LangContext";
+import { t } from "@/lib/i18n";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { lang, setLang } = useLang();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -13,11 +16,11 @@ export default function Navbar() {
   }, []);
 
   const links = [
-    { label: "Home", href: "#home" },
-    { label: "About", href: "#about" },
-    { label: "My Work", href: "#work" },
-    { label: "Education", href: "#education" },
-    { label: "Experience", href: "#experience" },
+    { label: t.nav.home[lang], href: "#home" },
+    { label: t.nav.about[lang], href: "#about" },
+    { label: t.nav.work[lang], href: "#work" },
+    { label: t.nav.education[lang], href: "#education" },
+    { label: t.nav.experience[lang], href: "#experience" },
   ];
 
   return (
@@ -32,18 +35,28 @@ export default function Navbar() {
         <div className="max-w-5xl mx-auto px-8 flex items-center justify-between">
           <a
             href="#home"
-            className="font-display text-2xl font-bold text-white tracking-tight"
-            style={{ fontFamily: '"Playfair Display", serif' }}
+            style={{
+              fontFamily: '"Playfair Display", serif',
+              fontSize: "22px",
+              fontWeight: 700,
+              color: "white",
+              textDecoration: "none",
+            }}
           >
             Kohei<span style={{ color: "#4F8EF7" }}>.</span>
           </a>
-          <ul className="hidden md:flex items-center gap-9 list-none m-0 p-0">
+
+          <ul className="hidden md:flex items-center gap-8 list-none m-0 p-0">
             {links.map((l) => (
               <li key={l.href}>
                 <a
                   href={l.href}
-                  className="text-sm font-medium tracking-wide transition-colors duration-200 no-underline"
-                  style={{ color: "#7A8CA3" }}
+                  style={{
+                    color: "#7A8CA3",
+                    textDecoration: "none",
+                    fontSize: "14px",
+                    fontWeight: 500,
+                  }}
                 >
                   {l.label}
                 </a>
@@ -52,13 +65,40 @@ export default function Navbar() {
             <li>
               <a
                 href="#contact"
-                className="text-sm font-medium px-5 py-2 rounded-lg no-underline text-white"
-                style={{ background: "#4F8EF7" }}
+                style={{
+                  background: "#4F8EF7",
+                  color: "white",
+                  textDecoration: "none",
+                  padding: "8px 20px",
+                  borderRadius: "8px",
+                  fontSize: "14px",
+                  fontWeight: 500,
+                }}
               >
-                Contact
+                {t.nav.contact[lang]}
               </a>
             </li>
+            {/* 言語切り替えボタン */}
+            <li>
+              <button
+                onClick={() => setLang(lang === "en" ? "ja" : "en")}
+                style={{
+                  background: "transparent",
+                  border: "1px solid rgba(79,142,247,0.3)",
+                  color: "#4F8EF7",
+                  padding: "6px 14px",
+                  borderRadius: "8px",
+                  fontSize: "13px",
+                  fontFamily: "DM Mono, monospace",
+                  cursor: "pointer",
+                  transition: "all 0.2s",
+                }}
+              >
+                {lang === "en" ? "日本語" : "EN"}
+              </button>
+            </li>
           </ul>
+
           <button
             className="md:hidden flex flex-col gap-1.5 cursor-pointer p-1"
             style={{ background: "transparent", border: "none" }}
@@ -66,18 +106,35 @@ export default function Navbar() {
             aria-label="menu"
           >
             <span
-              className="block w-6 h-0.5 bg-white rounded transition-all duration-300"
               style={{
+                display: "block",
+                width: "24px",
+                height: "2px",
+                background: "white",
+                borderRadius: "2px",
+                transition: "all 0.3s",
                 transform: menuOpen ? "rotate(45deg) translateY(8px)" : "none",
               }}
             />
             <span
-              className="block w-6 h-0.5 bg-white rounded transition-all duration-300"
-              style={{ opacity: menuOpen ? 0 : 1 }}
+              style={{
+                display: "block",
+                width: "24px",
+                height: "2px",
+                background: "white",
+                borderRadius: "2px",
+                transition: "all 0.3s",
+                opacity: menuOpen ? 0 : 1,
+              }}
             />
             <span
-              className="block w-6 h-0.5 bg-white rounded transition-all duration-300"
               style={{
+                display: "block",
+                width: "24px",
+                height: "2px",
+                background: "white",
+                borderRadius: "2px",
+                transition: "all 0.3s",
                 transform: menuOpen
                   ? "rotate(-45deg) translateY(-8px)"
                   : "none",
@@ -101,22 +158,48 @@ export default function Navbar() {
             <a
               key={l.href}
               href={l.href}
-              className="text-base font-medium no-underline transition-colors"
-              style={{ color: "#7A8CA3" }}
+              style={{
+                color: "#7A8CA3",
+                textDecoration: "none",
+                fontSize: "16px",
+                fontWeight: 500,
+              }}
               onClick={() => setMenuOpen(false)}
             >
               {l.label}
             </a>
           ))}
-
           <a
             href="#contact"
-            className="text-center py-3 text-white rounded-xl text-sm font-medium no-underline"
-            style={{ background: "#4F8EF7" }}
+            style={{
+              textAlign: "center",
+              padding: "12px",
+              background: "#4F8EF7",
+              color: "white",
+              borderRadius: "12px",
+              fontSize: "14px",
+              fontWeight: 500,
+              textDecoration: "none",
+            }}
             onClick={() => setMenuOpen(false)}
           >
-            Contact Me
+            {t.nav.contact[lang]}
           </a>
+          <button
+            onClick={() => setLang(lang === "en" ? "ja" : "en")}
+            style={{
+              background: "transparent",
+              border: "1px solid rgba(79,142,247,0.3)",
+              color: "#4F8EF7",
+              padding: "10px",
+              borderRadius: "10px",
+              fontSize: "14px",
+              fontFamily: "DM Mono, monospace",
+              cursor: "pointer",
+            }}
+          >
+            {lang === "en" ? "日本語に切り替え" : "Switch to English"}
+          </button>
         </div>
       )}
     </>

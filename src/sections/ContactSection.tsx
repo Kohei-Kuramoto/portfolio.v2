@@ -1,14 +1,19 @@
+'use client';
+
+import { useLang } from '@/lib/LangContext';
+import { t } from '@/lib/i18n';
+
 export default function ContactSection() {
+  const { lang } = useLang();
+
   return (
     <>
-      <section id="contact" className="py-28" style={{background: '#080C14'}}>
+      <section id="contact" className="py-28" style={{background: '#0D1524'}}>
         <div className="max-w-5xl mx-auto px-8">
           <div className="max-w-2xl mx-auto text-center">
-            <p style={{fontFamily: 'DM Mono, monospace', fontSize: '12px', letterSpacing: '3px', color: '#4F8EF7', textTransform: 'uppercase', marginBottom: '12px'}}>Contact Me</p>
-            <h2 style={{fontFamily: '"Playfair Display", serif', fontSize: 'clamp(36px, 5vw, 52px)', fontWeight: 700, color: 'white', lineHeight: 1.15, marginBottom: '16px'}}>Let's work together</h2>
-            <p style={{fontSize: '16px', color: '#7A8CA3', lineHeight: 1.7, marginBottom: '36px'}}>
-              I'm currently open to internship and part-time opportunities. Feel free to reach out — I'd love to connect!
-            </p>
+            <p style={{fontFamily: 'DM Mono, monospace', fontSize: '12px', letterSpacing: '3px', color: '#4F8EF7', textTransform: 'uppercase', marginBottom: '12px'}}>{t.contact.label[lang]}</p>
+            <h2 style={{fontFamily: '"Playfair Display", serif', fontSize: 'clamp(36px, 5vw, 52px)', fontWeight: 700, color: 'white', lineHeight: 1.15, marginBottom: '16px'}}>{t.contact.title[lang]}</h2>
+            <p style={{fontSize: '16px', color: '#7A8CA3', lineHeight: 1.7, marginBottom: '36px'}}>{t.contact.subtitle[lang]}</p>
 
             <a href="mailto:kohey0428@gmail.com" className="inline-flex items-center gap-3 px-9 py-4 rounded-xl text-white font-medium transition-all duration-200 hover:-translate-y-1" style={{background: '#4F8EF7', textDecoration: 'none', fontSize: '17px', boxShadow: '0 4px 24px rgba(79,142,247,0.2)'}}>
               <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -36,16 +41,16 @@ export default function ContactSection() {
                   <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" strokeLinecap="round" strokeLinejoin="round"/>
                   <polyline points="14 2 14 8 20 8" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-                Resume PDF
+                {t.contact.resume[lang]}
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      <footer className="py-8 text-center" style={{borderTop: '1px solid rgba(79,142,247,0.1)'}}>
+      <footer className="py-8 text-center" style={{borderTop: '1px solid rgba(79,142,247,0.1)', background: '#080C14'}}>
         <p style={{fontSize: '13px', color: '#7A8CA3', fontFamily: 'DM Mono, monospace'}}>
-          © 2026 Kohei Kuramoto · Built with Next.js & Tailwind CSS
+          {t.contact.footer[lang]}
         </p>
       </footer>
     </>
