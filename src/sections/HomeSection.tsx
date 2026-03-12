@@ -103,7 +103,7 @@ export default function HomeSection() {
                 </svg>
               </a>
               <a
-                href="/resume.pdf"
+                href={lang === "ja" ? "/resume_ja.pdf" : "/resume_en.pdf"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-medium transition-all duration-200 hover:-translate-y-0.5"
