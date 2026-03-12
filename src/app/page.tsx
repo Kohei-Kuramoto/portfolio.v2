@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import LangModal from "@/components/LangModal";
 import HomeSection from "@/sections/HomeSection";
 import AboutSection from "@/sections/AboutSection";
 import WorkSection from "@/sections/WorkSection";
@@ -9,6 +10,7 @@ import ContactSection from "@/sections/ContactSection";
 export default function Page() {
   return (
     <>
+      <LangModal />
       <Navbar />
       <main>
         <HomeSection />
