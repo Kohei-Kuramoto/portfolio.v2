@@ -2,7 +2,8 @@ import Navbar from "@/components/Navbar";
 import HomeSection from "@/sections/HomeSection";
 import AboutSection from "@/sections/AboutSection";
 import WorkSection from "@/sections/WorkSection";
-import HistorySection from "@/sections/HistorySection";
+import EducationSection from "@/sections/EducationSection";
+import ExperienceSection from "@/sections/ExperienceSection";
 import ContactSection from "@/sections/ContactSection";
 
 export default function Page() {
@@ -13,7 +14,8 @@ export default function Page() {
         <HomeSection />
         <AboutSection />
         <WorkSection />
-        <HistorySection />
+        <EducationSection />
+        <ExperienceSection />
         <ContactSection />
       </main>
     </>
