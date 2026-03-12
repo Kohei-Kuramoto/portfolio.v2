@@ -6,10 +6,10 @@ import { useLang } from "@/lib/LangContext";
 import { t } from "@/lib/i18n";
 
 const esolutionsImages = [
-  "/images/esolutions1.JPEG",
-  "/images/esolutions2.JPEG",
-  "/images/esolutions3.JPEG",
-  "/images/esolutions4.JPG",
+  "/images/esolutions1.jpg",
+  "/images/esolutions2.jpg",
+  "/images/esolutions3.jpg",
+  "/images/esolutions4.jpg",
 ];
 
 export default function ExperienceSection() {
